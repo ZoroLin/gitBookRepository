@@ -81,9 +81,14 @@ Markdown语法的目标是：成为一种适用于网络的书写语言，易读
 ## 链接 ##
 链接文字都是用 [方括号] 来标记,()中为链接地址。  
 ```
-[链接例子](http://www.baidu.com)
+[链接例子](http://www.baidu.com "百度搜索")
 ```
-[链接例子](http://www.baidu.com)  
+[链接例子](http://www.baidu.com "百度搜索")  
+* * *
+```
+[foo]: http://example.com/  "Optional Title Here"
+```
+[foo]: http://example.com/  "Optional Title Here"
 
 ## 图片 ##
 ```![](图片链接地址)```为图片语法  
