@@ -1,5 +1,7 @@
 # 与Markdown相关知识 #
-Markdown语法的目标是：成为一种适用于网络的书写语言，易读易写。
+Markdown语法的目标是：成为一种适用于网络的书写语言，易读易写。  
+具体的文档：  
+[Markdown 语法说明 (简体中文版)](http://wowubuntu.com/markdown/index.html#link)  
 
 ## 标题 ##
 两种形式：
@@ -76,14 +78,16 @@ Markdown语法的目标是：成为一种适用于网络的书写语言，易读
 *斜体*  
 **粗体**
 
-## 表格 ##
+## 链接 ##
+链接文字都是用 [方括号] 来标记,()中为链接地址。  
+```
+[链接例子](http://www.baidu.com)
+```
+[链接例子](http://www.baidu.com)  
 
-
-
-
-
-
-
-
-
-
+## 图片 ##
+```![](图片链接地址)```为图片语法  
+```
+![](http://upload-images.jianshu.io/upload_images/259-0ad0d0bfc1c608b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+```
+![](http://upload-images.jianshu.io/upload_images/259-0ad0d0bfc1c608b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
