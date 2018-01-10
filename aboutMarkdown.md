@@ -79,16 +79,16 @@ Markdown语法的目标是：成为一种适用于网络的书写语言，易读
 **粗体**
 
 ## 链接 ##
-链接文字都是用 [方括号] 来标记,()中为链接地址。  
+**行内式链接:** 文字都是用 [方括号] 来标记,()中为链接地址。  
 ```
 [链接例子](http://www.baidu.com "百度搜索")
 ```
 [链接例子](http://www.baidu.com "百度搜索")  
-* * *
+**参考式链接：** 在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记。
 ```
-[foo]: http://example.com/  "Optional Title Here"
+[Google]: http://google.com/
 ```
-[foo]: http://example.com/  "Optional Title Here"
+[Google]: http://google.com/  
 
 ## 图片 ##
 ```![](图片链接地址)```为图片语法  
@@ -96,3 +96,25 @@ Markdown语法的目标是：成为一种适用于网络的书写语言，易读
 ![](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Jat1?ver=3394&q=90&m=6&h=132&w=235&b=%23FFFFFFFF&l=f&o=t&x=238&y=148&aim=true)
 ```
 ![](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Jat1?ver=3394&q=90&m=6&h=132&w=235&b=%23FFFFFFFF&l=f&o=t&x=238&y=148&aim=true)  
+  
+## 分隔线 ##
+```
+* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+```
+* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
