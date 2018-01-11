@@ -85,7 +85,8 @@ Markdown语法的目标是：成为一种适用于网络的书写语言，易读
 [链接例子](http://www.baidu.com "百度搜索")
 ```
 [链接例子](http://www.baidu.com "百度搜索")  
-**参考式链接：** 在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记。<span style="color:red">（没搞懂，TODO）</span>
+**参考式链接：** 在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记。
+<span style="color:red">没搞懂，TODO</span>
 ```
 [Google]: http://google.com/
 ```
