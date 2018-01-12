@@ -1,8 +1,10 @@
+# git相关知识
+
 关于Git的使用，包括Git、gitHub、ssh什么的
 
-## ssh
+## ssh生成
 
-相关资料：[生成 SSH 公钥](https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
+相关资料：[生成 SSH 公钥](https://git-scm.com/book/zh/v2/服务器上的-Git-生成-SSH-公钥)
 
 > ## 生成 SSH 公钥 {#_generate_ssh_key}
 >
@@ -45,6 +47,8 @@
 > ```
 >
 > 关于在多种操作系统中生成 SSH 密钥的更深入教程，请参阅 GitHub 的 SSH 密钥指南[https://help.github.com/articles/generating-ssh-keys](https://help.github.com/articles/generating-ssh-keys)。
+
+_在GitHub上配置好ssh后可通过`$ ssh -v git@github.com`测试链接_
 
 
 
