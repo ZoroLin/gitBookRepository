@@ -48,7 +48,13 @@
 >
 > 关于在多种操作系统中生成 SSH 密钥的更深入教程，请参阅 GitHub 的 SSH 密钥指南[https://help.github.com/articles/generating-ssh-keys](https://help.github.com/articles/generating-ssh-keys)。
 
-_在GitHub上配置好ssh后可通过`$ ssh -v git@github.com`测试链接_
+_在GitHub上配置好ssh后可通过_`$ ssh -v git@github.com`_测试链接_
+
+## git命令：
+
+在所要存放项目的文件夹中`$ git clone url`url可以是http或ssh等；
+
+将远程仓库数据同步到本地:`$ git pull origin master`；
 
 
 
