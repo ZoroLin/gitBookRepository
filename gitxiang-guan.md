@@ -54,7 +54,17 @@ _在GitHub上配置好ssh后可通过_`$ ssh -v git@github.com`_测试链接_
 
 在所要存放项目的文件夹中`$ git clone url`url可以是http或ssh等；
 
+检查当前文件状态:`$ git status`、  `$ git status -s`
+
+跟踪新文件:`$ git add fileName`  
+
+忽略文件配置：TODO  
+
+提交更新：`$ git commit`、`$ git commit -m "~~"`  
+
+将本地数据同步到远程仓库:`$ git push origin master`;  
+
 将远程仓库数据同步到本地:`$ git pull origin master`；
 
-
+查看远程仓库:`$ git remote show origin`
 
