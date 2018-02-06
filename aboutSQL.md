@@ -9,4 +9,4 @@
 2. 限制结果  
 只想返回第一行或者一定数量的行时，各数据库的sql实现不一致：  
 - SQL Server和Access中使用`TOP`限制返回多少行（`SELECT TOP 5 prod_name FROM Products;`检索前5行）；  
-- DB2
+- DB2 
