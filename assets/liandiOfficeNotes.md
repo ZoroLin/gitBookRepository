@@ -3,7 +3,7 @@
 - entryTime:  
   
 **projectLog:**  
-1. tgy()  
+1. tgy(特高压中心精益化管控平台)  
 
 ```
 src\main\java\cn.com.xxx.xxx\web(moblie)\common
