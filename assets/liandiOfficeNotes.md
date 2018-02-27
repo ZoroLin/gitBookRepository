@@ -51,4 +51,34 @@ pom.xml
        request:定义bean的范围是http请求（springMVC中有效）
        session:定义bean的范围是http会话（springMVC中有效）
        global-session:定义bean的范围是全局http会话（portlet中有效）
+
+---------------------------------------------------------------------------------------------
+存储过程:procedure
+	执行存储过程：CALL productpricing(@pricelow,@pricehigh,@priceaverage);
+		      SELECT @pricelow,@pricehigh,@priceaverage;
+	创建存储过程：CREATE PROCEDURE productpricing()
+		      BEGIN
+			SELECT AVG(prod_price) AS priceaverage FROM products;
+		      END
+	删除存储过程：DROP PROCEDURE productpricting; /DROP PROCEDURE IF EXISTS
+	
+
+触发器：只有DELETE、INSERT、UPDATE支持触发器(只有表支持)，每个表每个事件只有一个触发器
+	创建触发器：CREATE TRIGGER 触发器名 AFTER INSERT ON 表名 FOR EACH ROW SELECT...
+	删除触发器: DROP TRIGGER 触发器名(不能更新或覆盖，只能删了重建)
+	INSERT触发器中，NEW虚拟表访问被插入的行
+	DELETE触发器中，OLD的虚拟表访问被删除的行 
+	  Oracle中，:NEW :OLD 来访问更新前后的数据
+
+---------------------------------------------------------------------------------------------
+更多工具-开发者工具-iphone6
+http://www.duanliang920.com/learn/web/html5/304.html
+viewport标签:
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	width  ----  viewport的宽度（width=device-width意思是：宽度等于设备宽度）
+	height ------  viewport的高度（height=device-height意思是：高度等于设备宽度）
+	initial-scale ----- 初始的缩放比例
+	minimum-scale ----- 允许用户缩放到的最小比例
+	maximum-scale ----- 允许用户缩放到的最大比例
+	user-scalable ----- 用户是否可以手动缩放
 ```  
