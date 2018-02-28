@@ -89,9 +89,9 @@ viewport标签:
 2. hdyn(区域公司综合业务管理系统)    
 
 	*from 2016-12-01 to 2017-10-20; after后期维护*  
-	> hdnx服务端 Struts2 + Spring + jdbc + db2 + Websphere(server)
-	> hdnx网页端 jsp + ExtJs + HighCharts + runqian(润乾报表) + swiper(滑动插件) + 其他插件
-	> hdnx开发环境 Rational Application Developer8.5 + Websphere Application Server 8.5 + runqian4.0
+	> hdnx服务端 Struts2 + Spring + jdbc + db2 + Websphere(server)  
+	> hdnx网页端 jsp + ExtJs + HighCharts + runqian(润乾报表) + swiper(滑动插件) + 其他插件  
+	> hdnx开发环境 Rational Application Developer8.5 + Websphere Application Server 8.5 + runqian4.0  
 ```
 webServer：
 	// 发送第三服务接口查询，由第三方返回xml
