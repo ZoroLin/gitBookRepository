@@ -7,7 +7,8 @@
 
 	*from 2016-07-25 to 2016-10-09*  
 	> tgy移动端：org.apache.cordova + jQueryMobile + sqlite  
-	> tgy服务端：
+	> tgy服务端：Spring + SpringMVC + Hibernate
+	> tgy网页端：jsp + easyUI + HighCharts + plupload(文件上传插件) + portal(拖拽插件) + json2(json转换插件) + 其他控件插件
 ```
 src\main\java\cn.com.xxx.xxx\web(moblie)\common
 				      	      \dao	持久层(存储层),对数据库操作
