@@ -7,7 +7,7 @@
 
 	*from 2016-07-25 to 2016-10-09*  
 	> tgy移动端：org.apache.cordova + jQueryMobile + sqlite  
-	> tgy服务端：Spring + SpringMVC + Hibernate
+	> tgy服务端：Spring + SpringMVC + Hibernate + Maven + Jetty
 	> tgy网页端：jsp + easyUI + HighCharts + plupload(文件上传插件) + portal(拖拽插件) + json2(json转换插件) + 其他控件插件
 ```
 src\main\java\cn.com.xxx.xxx\web(moblie)\common
@@ -86,12 +86,195 @@ viewport标签:
 	maximum-scale ----- 允许用户缩放到的最大比例
 	user-scalable ----- 用户是否可以手动缩放
 ```  
-2. ()    
+2. hdyn(区域公司综合业务管理系统)    
 
-	*from  to*  
-	>   
-	> 
-	> 
+	*from 2016-12-01 to 2017-10-20; after后期维护*  
+	> hdnx服务端 Struts2 + Spring + jdbc + db2 + Websphere(server)
+	> hdnx网页端 jsp + ExtJs + HighCharts + runqian(润乾报表) + swiper(滑动插件) + 其他插件
+	> hdnx开发环境 Rational Application Developer8.5 + Websphere Application Server 8.5 + runqian4.0
 ```
+webServer：
+	// 发送第三服务接口查询，由第三方返回xml
+	@Override
+	public String loadSendAndGetXml(int year,int month,int day,String orgCode)throws Exception{
+		String result = "";
+		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" +
+	    		"<request>" +
+	    		"	<year_time>"+year+"</year_time>" +
+	    		"	<month_time>"+month+"</month_time>" +
+	    		"	<day_time>"+month+"</day_time>" +
+	    		"	<org_code>"+orgCode+"</org_code>" +
+	    		"</request>";
 
+		String soapaction = "http://webservice.service.marketing.sac.com";
+        //你的webservice地址
+        String endpoint = "http://day.hdpi.cn/services/ConfiguerService";
+        Service service = new Service();
+        try {
+            Call call = (Call) service.createCall();
+            call.setTimeout(new Integer(60000));
+            call.setTargetEndpointAddress(new URL(endpoint));
+            //你需要远程调用的方法
+            call.setOperationName(new QName(soapaction,"loadConfiguer"));
+            //方法参数，如果没有参数请无视
+            call.addParameter(new QName(soapaction,"xml"), XMLType.XSD_STRING, ParameterMode.IN);
+            //设置返回类型，对方接口返回的json，我就用string接收了,自定义类型另贴一个代码
+            call.setReturnType(XMLType.XSD_STRING);
+            //调用方法并传递参数，没有参数的话： call.invoke(new Object[] { null});
+            result = (String) call.invoke(new Object[]{xml});
+            System.out.println(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		return result;
+	}
+	
+	//处理返回的结果
+	@Override
+	public JSONArray xmlAnalysis(String xml){
+		
+		JSONArray result = new JSONArray();
+		
+		//创建一个新的字符串
+        StringReader read = new StringReader(xml);
+        //创建新的输入源SAX 解析器将使用 InputSource 对象来确定如何读取 XML 输入
+        InputSource source = new InputSource(read);
+        //创建一个新的SAXBuilder
+        SAXBuilder sb = new SAXBuilder();
+        try {
+            //通过输入源构造一个Document
+            Document doc = sb.build(source);
+            //取的根元素
+            Element root = doc.getRootElement();
+            //System.out.println(root.getName());//输出根元素的名称（测试）
+            //得到根元素所有子元素的集合
+            List jiedian = root.getChildren();
+            //获得XML中的命名空间（XML中未定义可不写）
+            Namespace ns = root.getNamespace();
+            Element et = null;
+            for(int i=0;i<jiedian.size();i++){
+                et = (Element) jiedian.get(i);//循环依次得到子元素
+               
+                String note_code = et.getChild("note_code",ns).getText();
+                String theValue = et.getChild("daypro_dayComp",ns).getText();
+                Map<String,String> elecTypeList = Constants.ELEC_TYPE_CODE;
+                
+                System.out.println(note_code+"--"+elecTypeList.get(note_code)+":"+theValue);
+                
+                JSONObject json = new JSONObject();
+                json.put("note_code", note_code);
+                json.put("elecType", elecTypeList.get(note_code));
+                json.put("theValue", theValue==null?0:theValue);
+                result.add(json);
+            }
+           
+            //所有节点字段
+            /*et = (Element) jiedian.get(0);
+            List zjiedian = et.getChildren();
+            for(int j=0;j<zjiedian.size();j++){
+                Element xet = (Element) zjiedian.get(j);
+                System.out.println(xet.getName());
+            }*/
+            
+        } catch (Exception e) {
+            // TODO 自动生成 catch 块
+            e.printStackTrace();
+        }
+		return result;
+	}
+	
+	********************************************
+	// 发送第三服务接口查询，由第三方返回json
+	@Override
+	public String loadSendAndGetJson(String fgs_orgcode,String dc_orgcode) throws Exception {
+		String result = "";
+
+		String soapaction = "http://eemp.webserver.Evaluate/";
+		// 你的webservice地址
+		String endpoint = "http://10.158.190.51:8081/eemp/webservice/evaluate?wsdl";
+		Service service = new Service();
+		try {
+			Call call = (Call) service.createCall();
+			call.setTimeout(new Integer(60000));
+			call.setTargetEndpointAddress(new URL(endpoint));
+			// 你需要远程调用的方法
+			call.setOperationName(new QName(soapaction, "getTargetValue"));
+			// 方法参数，如果没有参数请无视
+			call.addParameter(new QName("arg0"), XMLType.XSD_STRING,
+					ParameterMode.IN);
+			call.addParameter(new QName("arg1"), XMLType.XSD_STRING,
+					ParameterMode.IN);
+			// 设置返回类型，对方接口返回的json，我就用string接收了,自定义类型另贴一个代码
+			call.setReturnType(XMLType.XSD_STRING);
+			// 调用方法并传递参数，没有参数的话： call.invoke(new Object[] { null});
+			result = (String) call.invoke(new Object[] { fgs_orgcode,
+					dc_orgcode });
+			System.out.println("------------------------结果：" + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+----------------------------------------------------------------------------------------------
+文件格式转pdf:
+@Override
+	public String loadAttachCache(String attachId,String parentId,String addr){
+		JSONObject attachInfo = assessmentListDao.getAttachInfo(attachId,parentId);
+		if(attachInfo!=null&&attachInfo.get("attachAddr")!=null&&attachInfo.get("attachName")!=null){
+			String attachName = attachInfo.get("attachName").toString();
+			String attachAddr = attachInfo.get("attachAddr").toString();
+			try {
+				File file = new File(attachAddr + attachName);
+				// 如果文件不存在
+				if (!file.exists()) {
+					log.info("无文件信息");
+					return "1";
+				}
+				String fileName=file.getName();
+			    String prefix=fileName.substring(fileName.lastIndexOf(".")+1);
+			    String theName = fileName.substring(0,fileName.lastIndexOf("."));
+				/*if(prefix.equals("pdf")){
+					System.out.println("PDF not need to convert!");
+					
+				}*/
+			    FileConvert fileConvert = new FileConvert();
+			    deleteFile(new File(addr+"hdnx/fileCache/")); 
+			    if(prefix.equals("doc")||prefix.equals("docx")||prefix.equals("txt")||prefix.equals("ppt")||prefix.equals("pptx")||prefix.equals("xls")||prefix.equals("xlsx")){
+					//当文件是office格式时，转成pdf到项目文件夹下展示
+				    boolean isSuccess = fileConvert.convert2PDF(attachAddr + attachName, addr+"hdnx/fileCache/"+theName+".pdf");
+				    if(isSuccess==true){
+				    	return theName+".pdf";
+				    }
+				}else{
+					System.out.println("文件格式不支持转换!");
+					boolean isSuccess = fileConvert.copyFile(attachAddr + attachName, addr+"hdnx/fileCache/"+fileName);
+					if(isSuccess==true){
+				    	return fileName;
+				    }
+				}
+			    
+			    
+			} catch (Exception e) {
+				log.error(e);
+				return "2";
+			}
+		}
+		return "1";
+	}
+	
+	/**
+	 * 清空pdf的文件夹
+	 * @param oldPath
+	 */
+	 public void deleteFile(File oldPath) {
+         if (oldPath.isDirectory()) {
+          System.out.println(oldPath + "是文件夹--");
+          File[] files = oldPath.listFiles();
+          for (File file : files) {
+            deleteFile(file);
+          }
+         }else{
+           oldPath.delete();
+         }
+       }
 ```
