@@ -217,6 +217,12 @@ webServer：
 	}
 ----------------------------------------------------------------------------------------------
 文件格式转pdf:
+[pdf转换功能配置：
+	jacob-1.17-M2-x64.dll （32位）放置在Program Files\Java\jdk1.7.0\jre\bin 和Program Files\Java\jdk1.7.0\bin下
+	C:\Windows\System32\config\systemprofile\Desktop文件夹创建
+	jacob.jar包导入项目
+	office安装
+]
 @Override
 	public String loadAttachCache(String attachId,String parentId,String addr){
 		JSONObject attachInfo = assessmentListDao.getAttachInfo(attachId,parentId);
@@ -277,4 +283,13 @@ webServer：
            oldPath.delete();
          }
        }
+```
+3. idev2()    
+
+	*from 2017-05-26 to 2017-07-21*  
+	> 
+	>   
+	>  
+```
+
 ```
