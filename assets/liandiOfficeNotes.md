@@ -7,8 +7,9 @@
 
 	*from 2016-07-25 to 2016-10-09*  
 	> tgy移动端：org.apache.cordova + jQueryMobile + sqlite  
-	> tgy服务端：Spring + SpringMVC + Hibernate + Maven + Jetty
-	> tgy网页端：jsp + easyUI + HighCharts + plupload(文件上传插件) + portal(拖拽插件) + json2(json转换插件) + 其他控件插件
+	> tgy服务端：Spring + SpringMVC + Hibernate + Oracle + Maven + Jetty
+	> tgy网页端：jsp + easyUI + HighCharts + plupload(文件上传插件) + portal(拖拽插件) + json2(json转换插件) + 其他控件插件  
+	> 实习期，负责页面样式调整、移动端全部的开发学习，最后好像为采用。
 ```
 src\main\java\cn.com.xxx.xxx\web(moblie)\common
 				      	      \dao	持久层(存储层),对数据库操作
@@ -92,6 +93,7 @@ viewport标签:
 	> hdnx服务端 Struts2 + Spring + jdbc + db2 + Websphere(server)  
 	> hdnx网页端 jsp + ExtJs + HighCharts + runqian(润乾报表) + swiper(滑动插件) + 其他插件  
 	> hdnx开发环境 Rational Application Developer8.5 + Websphere Application Server 8.5 + runqian4.0  
+	> 全程参与，负责功能页面、报表、数据库等等好多啊。
 ```
 webServer：
 	// 发送第三服务接口查询，由第三方返回xml
@@ -284,12 +286,68 @@ webServer：
          }
        }
 ```
-3. idev2()    
+3. idev2(iDeveloper)    
 
 	*from 2017-05-26 to 2017-07-21*  
-	> 
-	>   
-	>  
+	> iDeveloper服务端 NodeJs + express + mongoDB + (微服务?)  
+	> iDeveloper前端 antDesign + Redux + React + ES6 + less  
+	> iDeveloper开发环境 Git + NodeJs + Visual Studio Code(非必需) 
+	> 负责【业务功能管理】模块，功能菜单的管理及权限管理，断断续续修改学习，系统为初行版。
 ```
+idev2开发
+新页面配置：
+	D:\idev2NewCode\dev\client\src\route\routes.js --------------页面请求路由
+		import detail和list
+		Switch中PrivateRoute配置path
+	D:\idev2NewCode\dev\server\src\services\menuData.js----------菜单配置
+		link中对应其路由
+	D:\idev2NewCode\dev\client\src\index.js----------------------redux的sagas
+		import detail和list的sagas
+		store.runSaga(对应saga)
+	D:\idev2NewCode\dev\client\src\reducers\index.js-------------redux的reducers
+		import detail和list的reducers
+		const rootReducer = combineReducers({对应reducers})
+	D:\idev2NewCode\dev\client\src\actions\index.js--------------action配置
+		export * as ...
 
+
+页面交互及状态
+	config.js---------------------
+		mapStateToProps里添加某个状态,指向reducers.js里的方法
+	reducers.js-------------------	
+		对应config里定义的方法，根据action里操作名称做出反应
+	action.js---------------------
+		定义操作名称；调用操作的方法,与sagaDetail里参数对应
+	sagaDetail~.js	
+		定义操作调用参数方法，在传递props时给页面组件
+	
+方法的配置：
+	sagas.js里调用api接口请求数据，并根据结果调用reducers.js改变页面状态
+	reducers.js里根据操作类型参数改变页面某个状态返回
+	action.js里定义操作名称和方法供其他页面判断调用，方法内action()指向reducers.js操作状态或指向sagas.js请求数据
+	config.js里buildProps将action.js里的方法传给sagaDetail~.js组件
+	sagaDetail~.js	里通过render接收参数，自定义函数调用参数方法，最后通过React.cloneElement传给页面组件
+	页面组件里方法通过props传参，页面调用
+状态参数
+	reducers.js里根据操作类型参数改变页面某个状态返回
+	config.js里mapStateToProps定义状态名称，并指向reducers.js里方法的返回值
+	sagaDetail~.js接收状态传给子组件
+	页面组件通过参数获取状态，值改变组件刷新
+---------------------------------------------------------------------------
+git操作记录
+git clone git@***.**.***.150:/srv/dev.git
+git checkout dev
+ls
+cd dev
+git checkout dev
+	
+	git pull
+	git stash
+	git stash pop stash@{0}
+先按 i 切换到insert模式，就可以输入了，输入完之后先按esc，再输入:wq,回车
 ```
+4. 其他  
+	- yccs(远程测试平台) 
+	- lsny(电能绿色管理系统),lsny_jsjd(上海市并网电厂技术监督网)  
+	- dwxb(电网谐波数据状态分析)  
+	- tqjc(上海市电力公司运行月报)
