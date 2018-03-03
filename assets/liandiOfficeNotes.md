@@ -1,7 +1,8 @@
 # something about my first work #  
 
-- entryTime:  
-  
+- 2016-07 实习;   
+- 2016-10-05 转正;
+  
 **projectLog:**  
 1. tgy(特高压中心精益化管控平台)    
 
