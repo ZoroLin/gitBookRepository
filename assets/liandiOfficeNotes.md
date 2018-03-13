@@ -39,6 +39,8 @@ src\main\webapp\javascript
 		       \...
 pom.xml
 ...
+端口号配置  
+clean eclipse:eclipse jetty:run -Djetty.port=8081
 ----------------------------------------------------------------------------------------------
 其他注解:
 @Autowired					根据bean 类型从spring 上线文中进行查找，注册类型必须唯一，否则报异常.(1.与@Resource区别)
