@@ -8,9 +8,9 @@
 
 	*from 2016-07-25 to 2016-10-09*  
 	> tgy移动端：org.apache.cordova + jQueryMobile + sqlite  
-	> tgy服务端：Spring + SpringMVC + Hibernate + Oracle + Maven + Jetty
+	> tgy服务端：Spring + SpringMVC + Hibernate + Oracle + Maven + Jetty  
 	> tgy网页端：jsp + easyUI + HighCharts + plupload(文件上传插件) + portal(拖拽插件) + json2(json转换插件) + 其他控件插件  
-	> 实习期，负责页面样式调整、移动端全部的开发学习，最后好像为采用。
+	> 实习期，负责页面样式调整、移动端全部的开发学习，最后好像为采用。  
 ```
 src\main\java\cn.com.xxx.xxx\web(moblie)\common
 				      	      \dao	持久层(存储层),对数据库操作
@@ -58,8 +58,11 @@ clean eclipse:eclipse jetty:run -Djetty.port=8081
        prototype:定义bean可以被多次实例化（使用一次就创建一次）
        request:定义bean的范围是http请求（springMVC中有效）
        session:定义bean的范围是http会话（springMVC中有效）
-       global-session:定义bean的范围是全局http会话（portlet中有效）
-
+       global-session:定义bean的范围是全局http会话（portlet中有效）  
+线程里使用注解的类：  
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+currentDataDealDao = context.getBean(CurrentDataDealDao.class);
 ---------------------------------------------------------------------------------------------
 存储过程:procedure
 	执行存储过程：CALL productpricing(@pricelow,@pricehigh,@priceaverage);
