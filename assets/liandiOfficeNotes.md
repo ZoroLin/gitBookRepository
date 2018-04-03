@@ -1,7 +1,8 @@
 # something about my first work #  
 
 - 2016-07 实习;   
-- 2016-10-05 转正;
+- 2016-10-05 转正;  
+- 2016-03-30 离职。  
   
 **projectLog:**  
 1. tgy(特高压中心精益化管控平台)    
@@ -330,30 +331,4 @@ idev2开发
 方法的配置：
 	sagas.js里调用api接口请求数据，并根据结果调用reducers.js改变页面状态
 	reducers.js里根据操作类型参数改变页面某个状态返回
-	action.js里定义操作名称和方法供其他页面判断调用，方法内action()指向reducers.js操作状态或指向sagas.js请求数据
-	config.js里buildProps将action.js里的方法传给sagaDetail~.js组件
-	sagaDetail~.js	里通过render接收参数，自定义函数调用参数方法，最后通过React.cloneElement传给页面组件
-	页面组件里方法通过props传参，页面调用
-状态参数
-	reducers.js里根据操作类型参数改变页面某个状态返回
-	config.js里mapStateToProps定义状态名称，并指向reducers.js里方法的返回值
-	sagaDetail~.js接收状态传给子组件
-	页面组件通过参数获取状态，值改变组件刷新
----------------------------------------------------------------------------
-git操作记录
-git clone git@***.**.***.150:/srv/dev.git
-git checkout dev
-ls
-cd dev
-git checkout dev
-	
-	git pull
-	git stash
-	git stash pop stash@{0}
-先按 i 切换到insert模式，就可以输入了，输入完之后先按esc，再输入:wq,回车
-```
-4. 其他  
-	- yccs(远程测试平台) 
-	- lsny(电能绿色管理系统),lsny_jsjd(上海市并网电厂技术监督网)  
-	- dwxb(电网谐波数据状态分析)  
-	- tqjc(上海市电力公司运行月报)
+	action.js里定义操作名称和方法供其他页面判断调用，方法
